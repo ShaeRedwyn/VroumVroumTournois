@@ -1,19 +1,19 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/Users/x.paris/Documents/UnityProjects/Neural Network/Packages/manifest.json
+    m_FilePath: C:/UnityProjects/VroumVroumTournois/Neural Network/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637507939718723227
+      ticks: 637509812828545379
     m_Hash: 2380648995
   m_LockFileStatus:
-    m_FilePath: C:/Users/x.paris/Documents/UnityProjects/Neural Network/Packages/packages-lock.json
+    m_FilePath: C:/UnityProjects/VroumVroumTournois/Neural Network/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637507940240099083
+      ticks: 637509813872046193
     m_Hash: 3502454500
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -25,7 +25,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.9
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.collab-proxy@1.3.9
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.collab-proxy@1.3.9
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Unity Collaborate
@@ -120,7 +120,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.1
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.ide.rider@1.2.1
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.rider@1.2.1
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -213,7 +213,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.5
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -282,7 +282,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.ide.vscode@1.2.3
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.vscode@1.2.3
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -351,7 +351,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.1.19
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.test-framework@1.1.19
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.test-framework@1.1.19
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -391,11 +391,9 @@ m_PackageAssets:
         - 1.1.16
         - 1.1.18
         - 1.1.19
-        - 1.1.20
         compatible:
         - 1.1.19
-        - 1.1.20
-        verified: 1.1.20
+        verified: 1.1.19
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.5
@@ -438,7 +436,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.1
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.textmeshpro@3.0.1
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.textmeshpro@3.0.1
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -585,7 +583,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.6
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.timeline@1.3.6
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.timeline@1.3.6
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -2523,7 +2521,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.5
       source: 1
-      resolvedPath: C:\Users\x.paris\Documents\UnityProjects\Neural Network\Library\PackageCache\com.unity.ext.nunit@1.0.5
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ext.nunit@1.0.5
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -2544,15 +2542,13 @@ m_PackageAssets:
         - 0.1.9-preview
         - 1.0.0
         - 1.0.5
-        - 1.0.6
         compatible:
         - 0.1.5-preview
         - 0.1.6-preview
         - 0.1.9-preview
         - 1.0.0
         - 1.0.5
-        - 1.0.6
-        verified: 1.0.6
+        verified: 1.0.5
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -2581,5 +2577,5 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
-m_ProjectPath: C:/Users/x.paris/Documents/UnityProjects/Neural Network/Packages
+m_ProjectPath: C:/UnityProjects/VroumVroumTournois/Neural Network/Packages
 m_EditorVersion: 2020.1.17f1 (9957aee8edc2)

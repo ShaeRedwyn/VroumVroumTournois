@@ -255,7 +255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ReFocus();
+  m_Text: ReFocus
 --- !u!222 &55802797
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: End();
+  m_Text: End
 --- !u!222 &240134136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1429,7 +1429,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save()
+  m_Text: Save
 --- !u!222 &740235460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2545,7 +2545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Load()
+  m_Text: Load
 --- !u!222 &1730076093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2686,7 +2686,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ResetNet();
+  m_Text: ResetNet
 --- !u!222 &1813261516
 CanvasRenderer:
   m_ObjectHideFlags: 0
