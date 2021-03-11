@@ -151,14 +151,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57805106}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: -4, z: 12}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 17.5, y: 0, z: 6.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 278139670}
   - {fileID: 1514241326}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 402386898}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &69941418
 PrefabInstance:
@@ -1223,6 +1223,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2935688190472196732, guid: 9c8be0847002d1f478773c67be45dbf7, type: 3}
   m_PrefabInstance: {fileID: 352013069}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &402386898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+  m_PrefabInstance: {fileID: 1326180820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &407267023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1914,7 +1919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2935688190472196732, guid: 9c8be0847002d1f478773c67be45dbf7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.180304
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 2935688190472196732, guid: 9c8be0847002d1f478773c67be45dbf7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3911,6 +3916,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 994f97374df6444279b54b520d1535c3, type: 3}
   m_PrefabInstance: {fileID: 1311466790}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1326180820
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 100000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_Name
+      value: Track 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
 --- !u!4 &1332914900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2935688190472196732, guid: 9c8be0847002d1f478773c67be45dbf7, type: 3}
@@ -4173,6 +4235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119f05611f81dc34ab0d668434e0792a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LastCheckpointTrack: {fileID: 0}
+  currentTrack: {fileID: 0}
+  stadiumList: []
+  chosenList: []
+  needFinishCamera: 0
   populationSize: 40
   trainingDuration: 80
   mutationRate: 5
@@ -4182,6 +4249,8 @@ MonoBehaviour:
   stadiumParent: {fileID: 0}
   numberOfTracks: 0
   cameraController: {fileID: 2132062016}
+  cameraMain: {fileID: 0}
+  finishCamera: {fileID: 0}
   firstNames:
   - Sonic
   - Samantha
