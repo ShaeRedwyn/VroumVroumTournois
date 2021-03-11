@@ -25,9 +25,7 @@ public class CheckpointManager : MonoBehaviour
 
         for (int i = 0; i < transform.childCount-1; i++)
         { 
-
             transform.GetChild(i).GetComponent<Checkpoint>().nextCheckpoint = transform.GetChild(i + 1);
-
         }
 
         transform.GetChild(transform.childCount - 1).GetComponent<Checkpoint>().nextCheckpoint = transform.GetChild(0);

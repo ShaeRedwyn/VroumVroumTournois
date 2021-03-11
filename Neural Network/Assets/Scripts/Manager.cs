@@ -7,6 +7,16 @@ using System;
 
 public class Manager : MonoBehaviour
 {
+    //Canvas Stuff
+    [SerializeField] private TextMeshProUGUI yellowScore;
+    [SerializeField] private TextMeshProUGUI blueScore;
+    [SerializeField] private TextMeshProUGUI redScore;
+    [SerializeField] private TextMeshProUGUI greenScore;
+
+    public int numberOfTraining = 0;
+
+    public CheckpointManager currentCheckPointManager;
+
     public GameObject LastCheckpointTrack;
 
     public GameObject currentTrack;
@@ -61,7 +71,7 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI[] timingRank;
 
     public float MaxTime;
-    float currentTime;
+    public float currentTime;
     [HideInInspector] public string minutes;
     [HideInInspector] public string seconds;
 
@@ -69,16 +79,33 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        finishCamera = currentTrack.GetComponent<TrackBehaviour>().finishCamera;
-        finishCamera.enabled = false;
+        greenScore.text = null;
+        redScore.text = null;
+        blueScore.text = null;
+        yellowScore.text = null;
+
+        
         instance = this;
         Tirage();
     }
 
     void Start()
     {
+        InitialisationTrack();
         StartCoroutine(InitCoroutine());
-        currentTime = MaxTime;
+        
+        currentTime = 0;
+        
+    }
+
+    void InitialisationTrack()
+    {
+        currentTrack = chosenList[chosenList.Count - 1];
+        currentTrack.SetActive(true);
+        currentCheckPointManager = currentTrack.GetComponent<TrackBehaviour>().checkpointManager;
+        LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
+        finishCamera = currentTrack.GetComponent<TrackBehaviour>().finishCamera;
+        finishCamera.enabled = false;
     }
 
     private void Update()
@@ -93,9 +120,14 @@ public class Manager : MonoBehaviour
             finishCamera.enabled = true;
         }
 
-        StartCoroutine(UpdateLeaderboard());
+        if (currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar <10)
+        {
+            StartCoroutine(UpdateLeaderboard());
+        }    
 
-        currentTime -= Time.deltaTime;
+       
+
+        currentTime += Time.deltaTime;
 
         minutes = ((int)currentTime / 60).ToString();
         seconds = (Math.Round(currentTime, 1, MidpointRounding.AwayFromZero) % 60).ToString();
@@ -104,11 +136,6 @@ public class Manager : MonoBehaviour
     }
     void Tirage()
     {
-        foreach (Transform child in stadiumParent.transform)
-        {
-            stadiumList.Add(child.gameObject);
-        }
-
             for (int i = 0; i < numberOfTracks; i++)
             {
                 int randomNumber = UnityEngine.Random.Range(0, stadiumList.Count);
@@ -116,11 +143,11 @@ public class Manager : MonoBehaviour
                 GameObject chosenTrack = stadiumList[randomNumber];
                 chosenList.Add(chosenTrack);
                 stadiumList.Remove(stadiumList[randomNumber]);
-            LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
+                
             }
-
-           
     }
+
+
 
         void NewGeneration()
         {
@@ -129,28 +156,23 @@ public class Manager : MonoBehaviour
             Mutate();
             Reset();
             SetMaterials(); //À CHANGER, appeler au début du tournoi 
+
+            for (int i = 0; i < agents.Count; i++)
+            {
+                agents[i].GetComponent<Agent>().needToStop = false;
+            
+            }
         }
         void SetMaterials()
         {
-            for (int i = 0; i < 24; i++)
+            for (int i = 0; i < agents.Count; i+=4)
             {
                 agents[i].SetTeamRedMaterial();
+                agents[i + 1].SetTeamBleuMaterial();
+                agents[i + 2].SetTeamGreenMaterial();
+                agents[i + 3].SetTeamYellowMaterial();
             }
-
-            for (int i = 24; i < 49; i++)
-            {
-                agents[i].SetTeamBleuMaterial();
-            }
-
-            for (int i = 49; i < 74; i++)
-            {
-                agents[i].SetTeamGreenMaterial();
-            }
-            for (int i = 74; i < 99; i++)
-            {
-                agents[i].SetTeamYellowMaterial();
-            }
-    }
+        }
 
         void Reset()
         {
@@ -265,19 +287,14 @@ public class Manager : MonoBehaviour
 
         void Focus()
         {
-
             NeuralNetworkViewer.instance.agent = agents[0];
             NeuralNetworkViewer.instance.RefreshAxons();
             cameraController.target = agents[0].transform;
-
-
-
         }
 
         void InitNeuralNetworkViewer()
         {
             NeuralNetworkViewer.instance.Init(agents[0]);
-
         }
 
         IEnumerator InitCoroutine()
@@ -286,27 +303,109 @@ public class Manager : MonoBehaviour
             InitNeuralNetworkViewer();
             InitAgentName();
             Focus();
+       
+            yield return new WaitForSeconds(2f);
+            End();
+            
             yield return new WaitForSeconds(trainingDuration);
             StartCoroutine(Loop());
         }
 
         IEnumerator Loop()
         {
+        greenScore.text = null;
+        redScore.text = null;
+        blueScore.text = null;
+        yellowScore.text = null;
+        numberOfTraining++;
+
+            if (numberOfTraining < 4)
+            {
+                yield return new WaitForSeconds(2f);
+                End();
+            }
+
             cameraMain.enabled = true;
             currentTime = MaxTime;
             needFinishCamera = false;
+
             currentTrack.GetComponent<TrackBehaviour>().ResetTrack();
+            currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar = 0;
             ResetTeam();
             NewGeneration();
             Focus();
+            currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar = 0;
+            currentTrack.GetComponent<TrackBehaviour>().finishOrder = new List<GameObject>();
+            yield return new WaitForSeconds(trainingDuration);
+           
+            numberOfTraining++;
+
+            if(numberOfTraining < 15)
+            {
+            greenScore.text = null;
+            redScore.text = null;
+            blueScore.text = null;
+            yellowScore.text = null;
+            StartCoroutine(Run());
+            }
+
+        }
+        
+        IEnumerator Run()
+        {
+            cameraMain.enabled = true;
+            currentTime = MaxTime;
+            needFinishCamera = false;
+
+            currentTrack.GetComponent<TrackBehaviour>().ResetTrack();
+            currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar = 0;
+            ResetTeam();
+            NewGeneration();
+            Focus();
+            currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar = 0;
+            currentTrack.GetComponent<TrackBehaviour>().finishOrder = new List<GameObject>();
+            yield return new WaitForSeconds (trainingDuration);
+            greenScore.text = greenPoints.ToString();
+            redScore.text = redPoints.ToString();
+            blueScore.text = bluePoints.ToString();
+            yellowScore.text = yellowPoints.ToString();
+
+        }
+
+        IEnumerator NextTrack()
+        {
+            numberOfTraining = 0;
+
+            currentTrack.SetActive(false);
+            stadiumList.Remove(currentTrack);
+            InitialisationTrack();
+
+
+
+            NewGeneration();
+            InitNeuralNetworkViewer();
+            InitAgentName();
+            Focus();
+
+            yield return new WaitForSeconds(2f);
+            End();
+
             yield return new WaitForSeconds(trainingDuration);
             StartCoroutine(Loop());
         }
+
         void ResetTeam()
         {
             blueTeam.Clear();
             redTeam.Clear();
             greenTeam.Clear();
+            yellowTeam.Clear();
+            
+
+        for (int i = 0; i < timingRank.Length; i++)
+            {
+                timingRank[i].text = "00:00:00";
+            }
         }
 
         // sert à attribuer un nom à la voiture
@@ -366,7 +465,8 @@ public class Manager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             rankTextMesh[i].text = agents[i].fullName + " " + ((int)agents[i].fitness).ToString();
-            if(agents[i].myTeam == Agent.Team.Bleu)
+
+            if (agents[i].myTeam == Agent.Team.Bleu)
             {
                 rankTextMesh[i].color = Color.blue;
             }
@@ -385,7 +485,7 @@ public class Manager : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return null;
     }
 
 }

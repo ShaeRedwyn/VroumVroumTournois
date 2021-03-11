@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrackBehaviour : MonoBehaviour
 {
+    private BoxCollider boxCol;
+
     public List<GameObject> finishOrder = new List<GameObject>();
 
     public GameObject lastCheckpointTrack;
@@ -13,8 +15,10 @@ public class TrackBehaviour : MonoBehaviour
     public Manager manager;
     public int maxPoints = 100;
 
-    private int numberOfFinishedCar = 0;
+    public int numberOfFinishedCar = 0;
     //public List<GameObject> finishOrder = new List<GameObject>();
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,13 +30,25 @@ public class TrackBehaviour : MonoBehaviour
             maxPoints--;
             car.GetComponent<Agent>().needToStop = true;
 
-            manager.timingRank[numberOfFinishedCar].text = manager.minutes + " : " + manager.seconds;
-            numberOfFinishedCar++;
+            if(numberOfFinishedCar < 10)
+            {
+                manager.timingRank[numberOfFinishedCar].text = manager.minutes + " : " + manager.seconds;
+                numberOfFinishedCar++;
+            }
+
+           
         }
     }
 
+   
+
     public void ResetTrack()
     {
+        for (int i = 0; i < numberOfFinishedCar; i++)
+        {
+            manager.timingRank[i].text = "00:00:00";
+        }
+
         for (int i = 0; i < Manager.instance.blueTeam.Count; i++)
         {
             Manager.instance.bluePoints += Manager.instance.blueTeam[i].GetComponent<Agent>().points;
@@ -49,6 +65,12 @@ public class TrackBehaviour : MonoBehaviour
         {
             Manager.instance.yellowPoints += Manager.instance.yellowTeam[i].GetComponent<Agent>().points;
         }
+
+        maxPoints = 100;
+        numberOfFinishedCar = 0;
+        Manager.instance.currentTime = 0;
+        Manager.instance.minutes = "0";
+        Manager.instance.seconds = "0";
 
 
         finishOrder.Clear();

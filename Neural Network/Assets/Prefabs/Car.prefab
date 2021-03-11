@@ -576,7 +576,7 @@ MonoBehaviour:
   wheelRearRightCollider: {fileID: 2754172421434817538}
   horizontalInput: 0
   verticalInput: 0
-  maxSteerAngle: 30
+  maxSteerAngle: 45
   motorForce: 300
 --- !u!114 &919132147795246431
 MonoBehaviour:

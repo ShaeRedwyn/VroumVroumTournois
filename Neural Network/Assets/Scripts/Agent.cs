@@ -48,9 +48,10 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
         carController.Reset();
 
-        nextCheckpoint = CheckpointManager.Instance.firstCheckpoint;
-
+        nextCheckpoint = Manager.instance.currentCheckPointManager.firstCheckpoint;
+        lastCheckpoint = null;
         nextCheckpointDist = (transform.position - nextCheckpoint.position).magnitude;
+        UpdateColor();
     }
 
     private void FixedUpdate()
@@ -73,9 +74,9 @@ public class Agent : MonoBehaviour , IComparable<Agent>
                 rb.angularVelocity = Vector3.zero;
             }
         }
-       
-        
-        
+
+        UpdateColor();
+
         RespawnOnCheckpoint();        
     }
     void InputUpdate()
@@ -90,7 +91,27 @@ public class Agent : MonoBehaviour , IComparable<Agent>
         inputs[6] = (float)Math.Tanh(rb.angularVelocity.y * 0.1f);
         inputs[7] = 1;
     }
+    public void UpdateColor()
+    {
+        switch (myTeam)
+        {
+            case Team.Bleu:
+                text.color = Color.blue;
+                break;
+            case Team.Red:
+                text.color = Color.red;
+                break;
+            case Team.Green:
+                text.color = Color.green;
+                break;
+            case Team.Yellow:
+                text.color = Color.yellow;
+                break;
+            default:
 
+                break;
+        }
+    }
     RaycastHit hit;
     float range = 4f;
     public  LayerMask layerMask;
@@ -152,7 +173,7 @@ public class Agent : MonoBehaviour , IComparable<Agent>
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
-            Debug.Log("Car Respawn");
+            //Debug.Log("Car Respawn");
         }
     }
 
