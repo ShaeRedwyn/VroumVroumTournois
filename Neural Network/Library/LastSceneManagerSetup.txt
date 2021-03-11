@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/MVC_Scenes/Copy XP_Scene.unity
+- path: Assets/Scenes/XP_Scenes.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
