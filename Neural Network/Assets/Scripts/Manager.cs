@@ -58,11 +58,12 @@ public class Manager : MonoBehaviour
     public string[] adjectiveNames;
 
     public TextMeshProUGUI[] rankTextMesh;
+    public TextMeshProUGUI[] timingRank;
 
     public float MaxTime;
     float currentTime;
-    string minutes;
-    string seconds;
+    [HideInInspector] public string minutes;
+    [HideInInspector] public string seconds;
 
     public TextMeshProUGUI timerText;
     // Start is called before the first frame update
@@ -365,6 +366,23 @@ public class Manager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             rankTextMesh[i].text = agents[i].fullName + " " + ((int)agents[i].fitness).ToString();
+            if(agents[i].myTeam == Agent.Team.Bleu)
+            {
+                rankTextMesh[i].color = Color.blue;
+            }
+            if (agents[i].myTeam == Agent.Team.Red)
+            {
+                rankTextMesh[i].color = Color.red;
+            }
+            if (agents[i].myTeam == Agent.Team.Yellow)
+            {
+                rankTextMesh[i].color = Color.yellow;
+            }
+            if (agents[i].myTeam == Agent.Team.Green)
+            {
+                rankTextMesh[i].color = Color.green;
+            }
+
         }
 
         yield return new WaitForSeconds(1f);
