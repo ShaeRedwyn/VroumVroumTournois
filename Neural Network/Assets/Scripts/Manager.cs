@@ -5,6 +5,13 @@ using System.Linq;
 
 public class Manager : MonoBehaviour
 {
+    public GameObject LastCheckpointTrack;
+
+    public GameObject currentTrack;
+
+    public List<GameObject> stadiumList = new List<GameObject>();
+    public List<GameObject> chosenList = new List<GameObject>();
+
     public bool needFinishCamera = false;
 
     public static Manager instance;
@@ -21,7 +28,7 @@ public class Manager : MonoBehaviour
     List<Agent> agents = new List<Agent>();
 
     public int selectionNumbers;
-    
+
     //Tous les tracks sont dans un gameobject en enfant.
     //public List<GameObject> stadiumList = new List<GameObject>();
     //public List<GameObject> chosenList = new List<GameObject>();
@@ -44,7 +51,7 @@ public class Manager : MonoBehaviour
         finishCamera = currentTrack.GetComponent<TrackBehaviour>().finishCamera;
         finishCamera.enabled = false;
         instance = this;
-        //Tirage();
+        Tirage();
     }
 
     void Start()
@@ -71,239 +78,243 @@ public class Manager : MonoBehaviour
             stadiumList.Add(child.gameObject);
         }
 
-    //    for (int i = 0; i < numberOfTracks; i++)
-    //    {
-    //        int randomNumber = Random.Range(0, stadiumList.Count);
-    //        Debug.Log(randomNumber);
-    //        GameObject chosenTrack = stadiumList[randomNumber];
-    //        chosenList.Add(chosenTrack);
-    //        stadiumList.Remove(stadiumList[randomNumber]);
-    //    }
-
-    //    LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
-    //}
-    
-    void NewGeneration()
-    {
-        agents.Sort();
-        AddOrRemoveAgent();
-        Mutate();
-        Reset();
-        SetMaterials(); //À CHANGER, appeler au début du tournoi 
-    }
-    void SetMaterials()
-    {
-        for (int i = 0; i < 32; i++)
-        {
-            agents[i].SetGoldMaterial();
-        }
-
-        for (int i = 32; i < 65; i++)
-        {
-            agents[i].SetSilverMaterial();
-        }
-
-        for (int i = 65; i < 99; i++)
-        {
-            agents[i].SetBronzeMaterial();
-        }
-    }
-
-    void Reset()
-    {
-        for (int i = 0; i < agents.Count; i++)
-        {
-            agents[i].ResetAgent();
-        }    
-    }
-
-    void Mutate()
-    {
-        int selectedNumbers = 0;
-        for (int i = agents.Count / 2; i < agents.Count; i++)
-        {
-            agents[i].net.CopyNet(agents[selectedNumbers].net);
-            agents[i].net.Mutate(mutationRate);
-            agents[i].SetMutatedMaterial();
-            selectedNumbers++;
-            if(selectedNumbers == selectionNumbers)
+            for (int i = 0; i < numberOfTracks; i++)
             {
-                selectedNumbers = 0;
+                int randomNumber = Random.Range(0, stadiumList.Count);
+                Debug.Log(randomNumber);
+                GameObject chosenTrack = stadiumList[randomNumber];
+                chosenList.Add(chosenTrack);
+                stadiumList.Remove(stadiumList[randomNumber]);
+            LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
+            }
+
+           
+    }
+
+        void NewGeneration()
+        {
+            agents.Sort();
+            AddOrRemoveAgent();
+            Mutate();
+            Reset();
+            SetMaterials(); //À CHANGER, appeler au début du tournoi 
+        }
+        void SetMaterials()
+        {
+            for (int i = 0; i < 32; i++)
+            {
+                agents[i].SetGoldMaterial();
+            }
+
+            for (int i = 32; i < 65; i++)
+            {
+                agents[i].SetSilverMaterial();
+            }
+
+            for (int i = 65; i < 99; i++)
+            {
+                agents[i].SetBronzeMaterial();
             }
         }
-    }
 
-    void AddOrRemoveAgent()
-    {
-        if (agents.Count !=populationSize)
-        {
-            int dif = populationSize - agents.Count;
-
-            if (dif >0)
-            {
-                //ajouter agent.
-                for (int i = 0; i < dif; i++)
-                {
-                    AddAgent();
-                }
-            }
-            else
-            {
-                //supp agent.
-                for (int i = 0; i < dif; i++)
-                {
-                    RemoveAgent();
-                }
-            }
-        }
-    }
-    void AddAgent()
-    {
-       agent = Instantiate(agentPrefab, Vector3.zero,Quaternion.identity, agentGroup);
-       agent.net = new NeuralNetwork(agentPrefab.net.layers);
-
-       agents.Add(agent);
-    }
-
-    void RemoveAgent()
-    {
-        Destroy((agents[agents.Count - 1]).transform);
-        agents.RemoveAt(agents.Count - 1);
-    }
-
-    public void ReFocus()
-    {
-        agents.Sort();
-        Focus();
-    }
-
-    public void End()
-    {
-        StopAllCoroutines();
-        StartCoroutine(Loop());
-    }
-    public void ResetNets()
-    {
-        for (int i = 0; i < agents.Count; i++)
-        {
-            agents[i].net = new NeuralNetwork(agentPrefab.net.layers);
-        }
-
-        End();
-    }
-    public void Save()
-    {
-        List<NeuralNetwork> nets = new List<NeuralNetwork>();
-
-        for (int i = 0; i < agents.Count; i++)
-        {
-            nets.Add(agents[i].net);
-        }
-
-        DataManager.instance.Save(nets);
-    }
-
-    public void Load()
-    {
-        Data data = DataManager.instance.Load();
-
-        if (data != null)
+        void Reset()
         {
             for (int i = 0; i < agents.Count; i++)
             {
-                agents[i].net = data.nets[i];
-
+                agents[i].ResetAgent();
             }
         }
 
-        End();
-    }
+        void Mutate()
+        {
+            int selectedNumbers = 0;
+            for (int i = agents.Count / 2; i < agents.Count; i++)
+            {
+                agents[i].net.CopyNet(agents[selectedNumbers].net);
+                agents[i].net.Mutate(mutationRate);
+                
+                selectedNumbers++;
+                if (selectedNumbers == selectionNumbers)
+                {
+                    selectedNumbers = 0;
+                }
+            }
+        }
+
+        void AddOrRemoveAgent()
+        {
+            if (agents.Count != populationSize)
+            {
+                int dif = populationSize - agents.Count;
+
+                if (dif > 0)
+                {
+                    //ajouter agent.
+                    for (int i = 0; i < dif; i++)
+                    {
+                        AddAgent();
+                    }
+                }
+                else
+                {
+                    //supp agent.
+                    for (int i = 0; i < dif; i++)
+                    {
+                        RemoveAgent();
+                    }
+                }
+            }
+        }
+        void AddAgent()
+        {
+            agent = Instantiate(agentPrefab, Vector3.zero, Quaternion.identity, agentGroup);
+            agent.net = new NeuralNetwork(agentPrefab.net.layers);
+
+            agents.Add(agent);
+        }
+
+        void RemoveAgent()
+        {
+            Destroy((agents[agents.Count - 1]).transform);
+            agents.RemoveAt(agents.Count - 1);
+        }
+
+        public void ReFocus()
+        {
+            agents.Sort();
+            Focus();
+        }
+
+        public void End()
+        {
+            StopAllCoroutines();
+            StartCoroutine(Loop());
+        }
+        public void ResetNets()
+        {
+            for (int i = 0; i < agents.Count; i++)
+            {
+                agents[i].net = new NeuralNetwork(agentPrefab.net.layers);
+            }
+
+            End();
+        }
+        public void Save()
+        {
+            List<NeuralNetwork> nets = new List<NeuralNetwork>();
+
+            for (int i = 0; i < agents.Count; i++)
+            {
+                nets.Add(agents[i].net);
+            }
+
+            DataManager.instance.Save(nets);
+        }
+
+        public void Load()
+        {
+            Data data = DataManager.instance.Load();
+
+            if (data != null)
+            {
+                for (int i = 0; i < agents.Count; i++)
+                {
+                    agents[i].net = data.nets[i];
+
+                }
+            }
+
+            End();
+        }
 
 
-    void Focus()
-    {
-
-        NeuralNetworkViewer.instance.agent = agents[0];
-        NeuralNetworkViewer.instance.RefreshAxons();
-        cameraController.target = agents[0].transform;
-
-
-       
-    }
-
-    void InitNeuralNetworkViewer()
-    {
-        NeuralNetworkViewer.instance.Init(agents[0]);
-
-    }
-
-    IEnumerator InitCoroutine()
-    {
-       
-        NewGeneration();
-        InitNeuralNetworkViewer();
-        //InitAgentName();
-        Focus();
-        yield return new WaitForSeconds(trainingDuration);
-        StartCoroutine(Loop());
-    }
-
-    IEnumerator Loop()
-    {
-        NewGeneration();
-        Focus();
-        yield return new WaitForSeconds(trainingDuration);
-        StartCoroutine(Loop());
-    }
-
-    // sert à attribuer un nom à la voiture
-    void InitAgentName()
-    {
-        for (int i = 0; i < agents.Count; i++)
+        void Focus()
         {
 
-            bool isFirstNameAlreadyIn;
-            bool isAdjectiveAlreadyIn;
-            bool isFullNameAlreadyIn;
-            int selectFirstName;
-            int selectAdjectiveName;
-            if (agents[i].fullName == string.Empty)
-            {
-                do
-                {
-                    isFullNameAlreadyIn = false;
-                    selectFirstName = Random.Range(0, firstNames.Length);
-                    selectAdjectiveName = Random.Range(0, adjectiveNames.Length);
-                    foreach (Agent agent in agents)
-                    {
-                        isFirstNameAlreadyIn = false;
-                        isAdjectiveAlreadyIn = false;
-                        if (agent.fullName != string.Empty)
-                        {
-                            if (agent.firstName == firstNames[selectFirstName])
-                            {
-                                isFirstNameAlreadyIn = true;
-                            }
-                            if (agent.adjectiveName == adjectiveNames[selectAdjectiveName])
-                            {
-                                isAdjectiveAlreadyIn = true;
-                            }
+            NeuralNetworkViewer.instance.agent = agents[0];
+            NeuralNetworkViewer.instance.RefreshAxons();
+            cameraController.target = agents[0].transform;
 
-                            if (isAdjectiveAlreadyIn && isFirstNameAlreadyIn)
+
+
+        }
+
+        void InitNeuralNetworkViewer()
+        {
+            NeuralNetworkViewer.instance.Init(agents[0]);
+
+        }
+
+        IEnumerator InitCoroutine()
+        {
+            
+
+            NewGeneration();
+            InitNeuralNetworkViewer();
+            InitAgentName();
+            Focus();
+            yield return new WaitForSeconds(trainingDuration);
+            StartCoroutine(Loop());
+        }
+
+        IEnumerator Loop()
+        {
+            needFinishCamera = false;
+            NewGeneration();
+            Focus();
+            yield return new WaitForSeconds(trainingDuration);
+            StartCoroutine(Loop());
+        }
+
+        // sert à attribuer un nom à la voiture
+        void InitAgentName()
+        {
+            for (int i = 0; i < agents.Count; i++)
+            {
+
+                bool isFirstNameAlreadyIn;
+                bool isAdjectiveAlreadyIn;
+                bool isFullNameAlreadyIn;
+                int selectFirstName;
+                int selectAdjectiveName;
+                if (agents[i].fullName == string.Empty)
+                {
+                    do
+                    {
+                        isFullNameAlreadyIn = false;
+                        selectFirstName = Random.Range(0, firstNames.Length);
+                        selectAdjectiveName = Random.Range(0, adjectiveNames.Length);
+                        foreach (Agent agent in agents)
+                        {
+                            isFirstNameAlreadyIn = false;
+                            isAdjectiveAlreadyIn = false;
+                            if (agent.fullName != string.Empty)
                             {
-                                isFullNameAlreadyIn = true;
+                                if (agent.firstName == firstNames[selectFirstName])
+                                {
+                                    isFirstNameAlreadyIn = true;
+                                }
+                                if (agent.adjectiveName == adjectiveNames[selectAdjectiveName])
+                                {
+                                    isAdjectiveAlreadyIn = true;
+                                }
+
+                                if (isAdjectiveAlreadyIn && isFirstNameAlreadyIn)
+                                {
+                                    isFullNameAlreadyIn = true;
+                                }
                             }
                         }
-                    }
 
-                } while (isFullNameAlreadyIn == true);
+                    } while (isFullNameAlreadyIn == true);
 
 
-                agents[i].firstName = firstNames[selectFirstName];
-                agents[i].adjectiveName = adjectiveNames[selectAdjectiveName];
-                agents[i].fullName = firstNames[selectFirstName] + " " + adjectiveNames[selectAdjectiveName];
-                agents[i].text.text = agents[i].fullName;
+                    agents[i].firstName = firstNames[selectFirstName];
+                    agents[i].adjectiveName = adjectiveNames[selectAdjectiveName];
+                    agents[i].fullName = firstNames[selectFirstName] + " " + adjectiveNames[selectAdjectiveName];
+                    agents[i].text.text = agents[i].fullName;
+                }
             }
         }
-    }
-}
+    } 
+

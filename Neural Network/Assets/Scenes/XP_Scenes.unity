@@ -2711,11 +2711,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishOrder: []
   lastCheckpointTrack: {fileID: 0}
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishCamera: {fileID: 0}
-  finishOrder: []
 --- !u!1001 &512035658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3224,23 +3224,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119f05611f81dc34ab0d668434e0792a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LastCheckpointTrack: {fileID: 0}
+  currentTrack: {fileID: 1009405132}
+  stadiumList: []
+  chosenList: []
   needFinishCamera: 0
   populationSize: 100
   trainingDuration: 120
   mutationRate: 5
   agentPrefab: {fileID: 2653385075853157574, guid: da71e4d2e122d61459408baf737def49, type: 3}
   agentGroup: {fileID: 939603503}
-  stadiumList: []
-  chosenList: []
+  selectionNumbers: 3
   stadiumParent: {fileID: 2040526375}
   numberOfTracks: 2
-  LastCheckpointTrack: {fileID: 0}
-  currentTrack: {fileID: 1009405132}
   cameraController: {fileID: 746683100}
   cameraMain: {fileID: 746683102}
   finishCamera: {fileID: 0}
-  firstNames: []
-  adjectiveNames: []
+  firstNames:
+  - Mario
+  - Luigi
+  - Sonic
+  - Bowser
+  - Peach
+  - Daisy
+  - Koopa
+  - Goomba
+  - Bill
+  - Chomp
+  adjectiveNames:
+  - Vicieux
+  - Impitoyable
+  - Victorieux
+  - Ambitieux
+  - Original
+  - "Fut\xE9"
+  - "Enjou\xE9"
+  - Malicieux
+  - "Na\xEFf"
+  - Lourd
 --- !u!114 &634123146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3540,11 +3561,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishOrder: []
   lastCheckpointTrack: {fileID: 1090260772}
   checkpointManager: {fileID: 1611539388}
   track: {fileID: 495995990}
   finishCamera: {fileID: 1890768374}
-  finishOrder: []
 --- !u!1001 &651250217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4815,11 +4836,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishOrder: []
   lastCheckpointTrack: {fileID: 0}
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishCamera: {fileID: 0}
-  finishOrder: []
 --- !u!64 &880585238
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5406,11 +5427,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishOrder: []
   lastCheckpointTrack: {fileID: 194407179}
   checkpointManager: {fileID: 641095868}
   track: {fileID: 641095866}
   finishCamera: {fileID: 1161025714}
-  finishOrder: []
 --- !u!1001 &1014185575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8332,11 +8353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishOrder: []
   lastCheckpointTrack: {fileID: 0}
   checkpointManager: {fileID: 1783014147}
   track: {fileID: 880585235}
   finishCamera: {fileID: 718672182}
-  finishOrder: []
 --- !u!1001 &1643806594
 PrefabInstance:
   m_ObjectHideFlags: 0

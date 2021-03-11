@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrackBehaviour : MonoBehaviour
 {
+    public List<GameObject> finishOrder = new List<GameObject>();
+
     public GameObject lastCheckpointTrack;
     public CheckpointManager checkpointManager;
     public GameObject track;
