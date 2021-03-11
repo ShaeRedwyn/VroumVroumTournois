@@ -13,7 +13,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637510551958584673
+=======
+      ticks: 637510520542183564
+>>>>>>> mathieu
     m_Hash: 3502454500
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

@@ -89,14 +89,23 @@ public class Manager : MonoBehaviour
         AddOrRemoveAgent();
         Mutate();
         Reset();
-        SetMaterials();
+        SetMaterials(); //À CHANGER, appeler au début du tournoi 
     }
     void SetMaterials()
     {
-        agents[0].SetFirstMaterial();
-        for (int i = 1; i < agents.Count/2; i++)
+        for (int i = 0; i < 32; i++)
         {
-            agents[i].SetDefaultMaterial();
+            agents[i].SetGoldMaterial();
+        }
+
+        for (int i = 32; i < 65; i++)
+        {
+            agents[i].SetSilverMaterial();
+        }
+
+        for (int i = 65; i < 99; i++)
+        {
+            agents[i].SetBronzeMaterial();
         }
     }
 
