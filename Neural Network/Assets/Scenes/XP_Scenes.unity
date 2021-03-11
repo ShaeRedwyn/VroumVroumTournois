@@ -3253,6 +3253,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishCamera: {fileID: 0}
+  maxPoints: 100
 --- !u!1 &500010078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3872,6 +3873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634123149}
+  - component: {fileID: 634123150}
   - component: {fileID: 634123148}
   - component: {fileID: 634123145}
   - component: {fileID: 634123147}
@@ -3906,6 +3908,14 @@ MonoBehaviour:
   agentPrefab: {fileID: 2653385075853157574, guid: da71e4d2e122d61459408baf737def49, type: 3}
   agentGroup: {fileID: 939603503}
   selectionNumbers: 3
+  blueTeam: []
+  redTeam: []
+  greenTeam: []
+  yellowTeam: []
+  redPoints: 0
+  bluePoints: 0
+  greenPoints: 0
+  yellowPoints: 0
   stadiumParent: {fileID: 2040526375}
   numberOfTracks: 2
   cameraController: {fileID: 746683100}
@@ -4070,6 +4080,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &634123150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634123144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115928583c5cf8a4fafaccfd091b29f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeScale: 1.75
 --- !u!1 &641095866
 GameObject:
   m_ObjectHideFlags: 0

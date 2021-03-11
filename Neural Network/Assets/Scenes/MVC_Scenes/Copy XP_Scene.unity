@@ -406,7 +406,6 @@ GameObject:
   m_Component:
   - component: {fileID: 56555913}
   - component: {fileID: 56555915}
-  - component: {fileID: 56555914}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -428,14 +427,6 @@ Transform:
   m_Father: {fileID: 1763243655}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 17.1, y: -180, z: 0}
---- !u!81 &56555914
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56555912}
-  m_Enabled: 1
 --- !u!20 &56555915
 Camera:
   m_ObjectHideFlags: 0
@@ -4450,6 +4441,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 796668658}
   track: {fileID: 1144514963}
   finishCamera: {fileID: 1784337405}
+  maxPoints: 100
 --- !u!65 &576198951
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5250,6 +5242,14 @@ MonoBehaviour:
   agentPrefab: {fileID: 2653385075853157574, guid: da71e4d2e122d61459408baf737def49, type: 3}
   agentGroup: {fileID: 2140199521}
   selectionNumbers: 3
+  blueTeam: []
+  redTeam: []
+  greenTeam: []
+  yellowTeam: []
+  redPoints: 0
+  bluePoints: 0
+  greenPoints: 0
+  yellowPoints: 0
   stadiumParent: {fileID: 758848774}
   numberOfTracks: 2
   cameraController: {fileID: 1692050256}
@@ -5277,6 +5277,9 @@ MonoBehaviour:
   - Malicieux
   - "Na\xEFf"
   - Lourd
+  rankTextMesh: []
+  MaxTime: 0
+  timerText: {fileID: 0}
 --- !u!114 &660604554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6947,7 +6950,6 @@ GameObject:
   m_Component:
   - component: {fileID: 835698278}
   - component: {fileID: 835698280}
-  - component: {fileID: 835698279}
   m_Layer: 0
   m_Name: 'Camera '
   m_TagString: Untagged
@@ -6969,14 +6971,6 @@ Transform:
   m_Father: {fileID: 1087328363}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 17.1, y: -180, z: 0}
---- !u!81 &835698279
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835698277}
-  m_Enabled: 1
 --- !u!20 &835698280
 Camera:
   m_ObjectHideFlags: 0
@@ -7234,6 +7228,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 507881438}
   track: {fileID: 507881436}
   finishCamera: {fileID: 2073283511}
+  maxPoints: 100
 --- !u!65 &862130133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9543,6 +9538,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 1105586352}
   track: {fileID: 1105586350}
   finishCamera: {fileID: 835698280}
+  maxPoints: 100
 --- !u!65 &1087328366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9982,6 +9978,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishCamera: {fileID: 0}
+  maxPoints: 100
 --- !u!64 &1144514966
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10782,6 +10779,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 859804083}
   track: {fileID: 859804081}
   finishCamera: {fileID: 1592924458}
+  maxPoints: 100
 --- !u!65 &1231858546
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14706,7 +14704,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1592924456}
   - component: {fileID: 1592924458}
-  - component: {fileID: 1592924457}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -14728,14 +14725,6 @@ Transform:
   m_Father: {fileID: 1231858543}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 17.1, y: -152.82, z: 0}
---- !u!81 &1592924457
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592924455}
-  m_Enabled: 1
 --- !u!20 &1592924458
 Camera:
   m_ObjectHideFlags: 0
@@ -15860,6 +15849,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 684132801}
   track: {fileID: 684132799}
   finishCamera: {fileID: 56555915}
+  maxPoints: 100
 --- !u!65 &1763243658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16107,7 +16097,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1784337403}
   - component: {fileID: 1784337405}
-  - component: {fileID: 1784337404}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -16129,14 +16118,6 @@ Transform:
   m_Father: {fileID: 576198948}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 18.26, y: 180, z: 0}
---- !u!81 &1784337404
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784337402}
-  m_Enabled: 1
 --- !u!20 &1784337405
 Camera:
   m_ObjectHideFlags: 0
@@ -18453,7 +18434,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2073283509}
   - component: {fileID: 2073283511}
-  - component: {fileID: 2073283510}
   m_Layer: 0
   m_Name: 'Camera '
   m_TagString: Untagged
@@ -18475,14 +18455,6 @@ Transform:
   m_Father: {fileID: 862130130}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 17.1, y: -180, z: 0}
---- !u!81 &2073283510
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073283508}
-  m_Enabled: 1
 --- !u!20 &2073283511
 Camera:
   m_ObjectHideFlags: 0
