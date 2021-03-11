@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.UI;
+using TMPro;
 
 public class Agent : MonoBehaviour , IComparable<Agent>
 {
@@ -24,6 +26,7 @@ public class Agent : MonoBehaviour , IComparable<Agent>
     public string firstName;
     public string adjectiveName;
 
+    public TextMeshPro text;
     public void ResetAgent()
     {
         needToStop = false;

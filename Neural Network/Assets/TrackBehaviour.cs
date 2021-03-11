@@ -9,7 +9,7 @@ public class TrackBehaviour : MonoBehaviour
     public GameObject track;
     public Camera finishCamera;
 
-    public List<GameObject> finishOrder = new List<GameObject>();
+    //public List<GameObject> finishOrder = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
     {
