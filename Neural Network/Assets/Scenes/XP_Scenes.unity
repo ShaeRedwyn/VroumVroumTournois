@@ -881,6 +881,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190777037}
   m_CullTransparentMesh: 0
+--- !u!1 &194407179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2935688190472196733, guid: 9c8be0847002d1f478773c67be45dbf7, type: 3}
+  m_PrefabInstance: {fileID: 451357384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &205275850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2706,6 +2711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCheckpointTrack: {fileID: 0}
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishOrder: []
@@ -3218,7 +3224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   populationSize: 100
-  trainingDuration: 80
+  trainingDuration: 120
   mutationRate: 5
   agentPrefab: {fileID: 2653385075853157574, guid: da71e4d2e122d61459408baf737def49, type: 3}
   agentGroup: {fileID: 939603503}
@@ -3227,6 +3233,7 @@ MonoBehaviour:
   stadiumParent: {fileID: 2040526375}
   numberOfTracks: 2
   LastCheckpointTrack: {fileID: 0}
+  currentTrack: {fileID: 1009405132}
   cameraController: {fileID: 746683100}
 --- !u!114 &634123146
 MonoBehaviour:
@@ -3235,7 +3242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634123144}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 330ff98eb311c704f9614fe2b408c676, type: 3}
   m_Name: 
@@ -3527,6 +3534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCheckpointTrack: {fileID: 1090260772}
   checkpointManager: {fileID: 1611539388}
   track: {fileID: 495995990}
   finishOrder: []
@@ -4556,7 +4564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
       propertyPath: m_RootOrder
@@ -4568,7 +4576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b974c5c08f684144a8c03f16eb4ad6b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4717,6 +4725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCheckpointTrack: {fileID: 0}
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishOrder: []
@@ -5289,7 +5298,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009405132}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 13.615175, y: 7.117058, z: 1.666665}
@@ -5306,6 +5315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCheckpointTrack: {fileID: 194407179}
   checkpointManager: {fileID: 641095868}
   track: {fileID: 641095866}
   finishOrder: []
@@ -5696,6 +5706,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4c266eccb4ff24ae9aeaf6fa734f60ea, type: 3}
   m_PrefabInstance: {fileID: 1084591285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1090260772 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2935688190472196733, guid: 9c8be0847002d1f478773c67be45dbf7, type: 3}
+  m_PrefabInstance: {fileID: 1246519908}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1121675782
 PrefabInstance:
@@ -7881,7 +7896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611539387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.83333325, z: 17}
+  m_LocalPosition: {x: 0, y: -0.000000059604645, z: 17}
   m_LocalScale: {x: 0.83333325, y: 0.83333325, z: 1}
   m_Children:
   - {fileID: 665226430}
@@ -8142,6 +8157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01a6f11c3fc19b47afd40f52c9eb2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCheckpointTrack: {fileID: 0}
   checkpointManager: {fileID: 1783014147}
   track: {fileID: 880585235}
   finishOrder: []
