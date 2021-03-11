@@ -14,6 +14,7 @@ public class Agent : MonoBehaviour , IComparable<Agent>
     float[] inputs;
 
     public Transform nextCheckpoint;
+    public Transform lastCheckpoint;
 
     public float nextCheckpointDist;
 
