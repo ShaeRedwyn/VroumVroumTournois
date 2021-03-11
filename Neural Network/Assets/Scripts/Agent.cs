@@ -5,6 +5,10 @@ using TMPro;
 
 public class Agent : MonoBehaviour , IComparable<Agent>
 {
+    public enum Team { Red, Green, Bleu, Yellow };
+    public Team myTeam;
+    
+
     public NeuralNetwork net;
     public CarController carController;
 
@@ -25,6 +29,8 @@ public class Agent : MonoBehaviour , IComparable<Agent>
     public string fullName;
     public string firstName;
     public string adjectiveName;
+
+    public int points;
 
     public TextMeshPro text;
     public void ResetAgent()
@@ -62,7 +68,7 @@ public class Agent : MonoBehaviour , IComparable<Agent>
             if (rb.velocity.magnitude < 1)
             {
                 carController.Reset();
-                Debug.Log("ici");
+                
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
             }
@@ -152,23 +158,40 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
 
     public Renderer render;
-    public Material goldMaterial;
-    public Material silverMaterial;
-    public Material bronzeMaterial;
-    public void SetGoldMaterial()
+    public Material redMaterial;
+    public Material greenMaterial;
+    public Material bleuMaterial;
+    public Material yellowMaterial;
+
+    public void SetTeamRedMaterial()
     {
-        render.material = goldMaterial;
+        render.material = redMaterial;
+        myTeam = Team.Red;
+        Manager.instance.redTeam.Add(gameObject);
     }
 
-    public void SetSilverMaterial()
+    public void SetTeamYellowMaterial()
     {
-        render.material = silverMaterial;
+        render.material = yellowMaterial;
+        myTeam = Team.Yellow;
+        Manager.instance.yellowTeam.Add(gameObject);
     }
 
-    public void SetBronzeMaterial()
+    public void SetTeamBleuMaterial()
     {
-        render.material = bronzeMaterial;
+        render.material = bleuMaterial;
+        myTeam = Team.Bleu;
+        Manager.instance.blueTeam.Add(gameObject);
     }
+
+
+    public void SetTeamGreenMaterial()
+    {
+        render.material = greenMaterial;
+        myTeam = Team.Green;
+        Manager.instance.greenTeam.Add(gameObject);
+    }
+
 
     public int CompareTo(Agent other)
     {

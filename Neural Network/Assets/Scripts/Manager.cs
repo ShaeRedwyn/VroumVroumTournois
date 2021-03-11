@@ -26,8 +26,18 @@ public class Manager : MonoBehaviour
     Agent agent;
 
     List<Agent> agents = new List<Agent>();
-
     public int selectionNumbers;
+
+    //Team Stuff
+    public List<GameObject> blueTeam = new List<GameObject>();
+    public List<GameObject> redTeam = new List<GameObject>();
+    public List<GameObject> greenTeam = new List<GameObject>();
+    public List<GameObject> yellowTeam = new List<GameObject>();
+
+    public int redPoints;
+    public int bluePoints;
+    public int greenPoints;
+    public int yellowPoints;
 
     //Tous les tracks sont dans un gameobject en enfant.
     //public List<GameObject> stadiumList = new List<GameObject>();
@@ -101,21 +111,25 @@ public class Manager : MonoBehaviour
         }
         void SetMaterials()
         {
-            for (int i = 0; i < 32; i++)
+            for (int i = 0; i < 24; i++)
             {
-                agents[i].SetGoldMaterial();
+                agents[i].SetTeamRedMaterial();
             }
 
-            for (int i = 32; i < 65; i++)
+            for (int i = 24; i < 49; i++)
             {
-                agents[i].SetSilverMaterial();
+                agents[i].SetTeamBleuMaterial();
             }
 
-            for (int i = 65; i < 99; i++)
+            for (int i = 49; i < 74; i++)
             {
-                agents[i].SetBronzeMaterial();
+                agents[i].SetTeamGreenMaterial();
             }
-        }
+            for (int i = 74; i < 99; i++)
+            {
+                agents[i].SetTeamYellowMaterial();
+            }
+    }
 
         void Reset()
         {
@@ -247,8 +261,6 @@ public class Manager : MonoBehaviour
 
         IEnumerator InitCoroutine()
         {
-            
-
             NewGeneration();
             InitNeuralNetworkViewer();
             InitAgentName();
@@ -259,11 +271,20 @@ public class Manager : MonoBehaviour
 
         IEnumerator Loop()
         {
+            cameraMain.enabled = true;
             needFinishCamera = false;
+            currentTrack.GetComponent<TrackBehaviour>().ResetTrack();
+            ResetTeam();
             NewGeneration();
             Focus();
             yield return new WaitForSeconds(trainingDuration);
             StartCoroutine(Loop());
+        }
+        void ResetTeam()
+        {
+            blueTeam.Clear();
+            redTeam.Clear();
+            greenTeam.Clear();
         }
 
         // sert à attribuer un nom à la voiture
