@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
+using System;
 
 public class Manager : MonoBehaviour
 {
@@ -45,6 +47,14 @@ public class Manager : MonoBehaviour
     public string[] firstNames;
     public string[] adjectiveNames;
 
+    public TextMeshProUGUI[] rankTextMesh;
+
+    public float MaxTime;
+    float currentTime;
+    string minutes;
+    string seconds;
+
+    public TextMeshProUGUI timerText;
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,6 +67,7 @@ public class Manager : MonoBehaviour
     void Start()
     {
         StartCoroutine(InitCoroutine());
+        currentTime = MaxTime;
     }
 
     private void Update()
@@ -70,6 +81,15 @@ public class Manager : MonoBehaviour
             cameraMain.enabled = false;
             finishCamera.enabled = true;
         }
+
+        StartCoroutine(UpdateLeaderboard());
+
+        currentTime -= Time.deltaTime;
+
+        minutes = ((int)currentTime / 60).ToString();
+        seconds = (Math.Round(currentTime, 1, MidpointRounding.AwayFromZero) % 60).ToString();
+
+        timerText.text = minutes + " : " + seconds;
     }
     void Tirage()
     {
@@ -80,7 +100,7 @@ public class Manager : MonoBehaviour
 
             for (int i = 0; i < numberOfTracks; i++)
             {
-                int randomNumber = Random.Range(0, stadiumList.Count);
+                int randomNumber = UnityEngine.Random.Range(0, stadiumList.Count);
                 Debug.Log(randomNumber);
                 GameObject chosenTrack = stadiumList[randomNumber];
                 chosenList.Add(chosenTrack);
@@ -259,6 +279,7 @@ public class Manager : MonoBehaviour
 
         IEnumerator Loop()
         {
+            currentTime = MaxTime;
             needFinishCamera = false;
             NewGeneration();
             Focus();
@@ -282,8 +303,8 @@ public class Manager : MonoBehaviour
                     do
                     {
                         isFullNameAlreadyIn = false;
-                        selectFirstName = Random.Range(0, firstNames.Length);
-                        selectAdjectiveName = Random.Range(0, adjectiveNames.Length);
+                        selectFirstName = UnityEngine.Random.Range(0, firstNames.Length);
+                        selectAdjectiveName = UnityEngine.Random.Range(0, adjectiveNames.Length);
                         foreach (Agent agent in agents)
                         {
                             isFirstNameAlreadyIn = false;
@@ -316,5 +337,17 @@ public class Manager : MonoBehaviour
                 }
             }
         }
-    } 
+    
+    IEnumerator UpdateLeaderboard()
+    {
+        agents.Sort();
+        for (int i = 0; i < 10; i++)
+        {
+            rankTextMesh[i].text = agents[i].fullName + " " + ((int)agents[i].fitness).ToString();
+        }
+
+        yield return new WaitForSeconds(1f);
+    }
+
+}
 
