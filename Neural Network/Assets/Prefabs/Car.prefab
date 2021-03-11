@@ -609,14 +609,15 @@ MonoBehaviour:
   distanceTraveled: 0
   rb: {fileID: 2754172422052550530}
   nextCheckpoint: {fileID: 0}
+  lastCheckpoint: {fileID: 0}
   nextCheckpointDist: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 1
   render: {fileID: 3601011185236577029}
-  firstMaterial: {fileID: 2100000, guid: a97d4f3d6ef705f429ccae4981254a74, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: 5ffd25b458dca61418c340256fb5856e, type: 2}
-  mutatedMaterial: {fileID: 2100000, guid: 9442eabf8040a73408425150ae09046c, type: 2}
+  goldMaterial: {fileID: 2100000, guid: c7b5b0c391a48ac44aa4112e9ec931a4, type: 2}
+  silverMaterial: {fileID: 2100000, guid: 4ac7ce3824740734996c394595cbbb18, type: 2}
+  bronzeMaterial: {fileID: 2100000, guid: 261e5e98ef61f5346bb642c4c2465627, type: 2}
 --- !u!1 &4262847501118090982
 GameObject:
   m_ObjectHideFlags: 0

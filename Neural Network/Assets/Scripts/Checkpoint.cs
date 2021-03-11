@@ -22,8 +22,7 @@ public class Checkpoint : MonoBehaviour
                 other.transform.parent.GetComponent<Agent>().CheckpointReached(nextCheckpoint);
                 other.transform.parent.GetComponent<Agent>().lastCheckpoint = gameObject.transform;
             }
-        }
-        
+        }        
         
     }
 }

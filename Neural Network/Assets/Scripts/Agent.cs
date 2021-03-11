@@ -42,6 +42,7 @@ public class Agent : MonoBehaviour , IComparable<Agent>
         InputUpdate();
         OutputUpdate();
         FitnessUpdate();
+        RespawnOnCheckpoint();        
     }
     void InputUpdate()
     {
@@ -100,24 +101,45 @@ public class Agent : MonoBehaviour , IComparable<Agent>
         nextCheckpointDist = (transform.position-checkpoint.position).magnitude;
     }
 
+    public void RespawnOnCheckpoint()    
+    {       
+
+        if (transform.position.y < -10)
+        {
+            if(lastCheckpoint != null)
+            {
+                transform.position = lastCheckpoint.transform.position;
+            }
+            else if(lastCheckpoint == null)
+            {
+                transform.position = Vector3.zero;
+            }
+
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
+            Debug.Log("Car Respawn");
+        }
+    }
+
 
     public Renderer render;
-    public Material firstMaterial;
-    public Material defaultMaterial;
-    public Material mutatedMaterial;
-    public void SetFirstMaterial()
+    public Material goldMaterial;
+    public Material silverMaterial;
+    public Material bronzeMaterial;
+    public void SetGoldMaterial()
     {
-        render.material = firstMaterial;
+        render.material = goldMaterial;
     }
 
-    public void SetMutatedMaterial()
+    public void SetSilverMaterial()
     {
-        render.material = mutatedMaterial;
+        render.material = silverMaterial;
     }
 
-    public void SetDefaultMaterial()
+    public void SetBronzeMaterial()
     {
-        render.material = defaultMaterial;
+        render.material = bronzeMaterial;
     }
 
     public int CompareTo(Agent other)
