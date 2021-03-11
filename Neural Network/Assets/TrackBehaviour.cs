@@ -10,8 +10,10 @@ public class TrackBehaviour : MonoBehaviour
     public CheckpointManager checkpointManager;
     public GameObject track;
     public Camera finishCamera;
-
+    public Manager manager;
     public int maxPoints = 100;
+
+    private int numberOfFinishedCar = 0;
     //public List<GameObject> finishOrder = new List<GameObject>();
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +25,9 @@ public class TrackBehaviour : MonoBehaviour
             car.GetComponent<Agent>().points += maxPoints;
             maxPoints--;
             car.GetComponent<Agent>().needToStop = true;
+
+            manager.timingRank[numberOfFinishedCar].text = manager.minutes + " : " + manager.seconds;
+            numberOfFinishedCar++;
         }
     }
 

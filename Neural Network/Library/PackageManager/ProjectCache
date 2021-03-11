@@ -1,19 +1,34 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
+<<<<<<< HEAD
     m_FilePath: E:/Unity projects/VroumVroumTournois/Neural Network/Packages/manifest.json
+=======
+    m_FilePath: C:/UnityProjects/VroumVroumTournois/Neural Network/Packages/manifest.json
+>>>>>>> Manon2
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637509964756902344
     m_Hash: 2380648995
   m_LockFileStatus:
     m_FilePath: E:/Unity projects/VroumVroumTournois/Neural Network/Packages/packages-lock.json
+=======
+      ticks: 637509812828545379
+    m_Hash: 2380648995
+  m_LockFileStatus:
+    m_FilePath: C:/UnityProjects/VroumVroumTournois/Neural Network/Packages/packages-lock.json
+>>>>>>> Manon2
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< HEAD
       ticks: 637510816997626029
+=======
+      ticks: 637510747046519122
+>>>>>>> Manon2
     m_Hash: 3502454500
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -25,7 +40,11 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.9
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.collab-proxy@1.3.9
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.collab-proxy@1.3.9
+>>>>>>> Manon2
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Unity Collaborate
@@ -120,7 +139,11 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.1
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.rider@1.2.1
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.rider@1.2.1
+>>>>>>> Manon2
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -155,10 +178,13 @@ m_PackageAssets:
         - 2.0.3
         - 2.0.5
         - 2.0.7
+<<<<<<< HEAD
         - 3.0.1
         - 3.0.2
         - 3.0.3
         - 3.0.4
+=======
+>>>>>>> Manon2
         compatible:
         - 1.0.2
         - 1.0.6
@@ -178,10 +204,13 @@ m_PackageAssets:
         - 2.0.3
         - 2.0.5
         - 2.0.7
+<<<<<<< HEAD
         - 3.0.1
         - 3.0.2
         - 3.0.3
         - 3.0.4
+=======
+>>>>>>> Manon2
         verified: 1.2.1
       dependencies:
       - name: com.unity.test-framework
@@ -221,7 +250,11 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.5
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.visualstudio@2.0.5
+>>>>>>> Manon2
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -277,7 +310,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637400980850000000
+      datePublishedTicks: 0
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -290,7 +323,11 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.vscode@1.2.3
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ide.vscode@1.2.3
+>>>>>>> Manon2
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -346,20 +383,24 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637394922300000000
+      datePublishedTicks: 0
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
-        revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
+        revision: 547f63839bdc87e0aed2c9e0d84f8f6336a83ea3
         path: 
     - packageId: com.unity.test-framework@1.1.19
       testable: 0
       isDirectDependency: 1
       version: 1.1.19
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.test-framework@1.1.19
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.test-framework@1.1.19
+>>>>>>> Manon2
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -399,6 +440,7 @@ m_PackageAssets:
         - 1.1.16
         - 1.1.18
         - 1.1.19
+<<<<<<< HEAD
         - 1.1.20
         - 1.1.22
         compatible:
@@ -406,6 +448,11 @@ m_PackageAssets:
         - 1.1.20
         - 1.1.22
         verified: 1.1.22
+=======
+        compatible:
+        - 1.1.19
+        verified: 1.1.19
+>>>>>>> Manon2
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.5
@@ -448,7 +495,11 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.1
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.textmeshpro@3.0.1
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.textmeshpro@3.0.1
+>>>>>>> Manon2
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -518,7 +569,6 @@ m_PackageAssets:
         - 1.5.0
         - 1.5.1
         - 1.5.3
-        - 1.5.4
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.1
@@ -537,7 +587,6 @@ m_PackageAssets:
         - 2.1.0
         - 2.1.1
         - 2.1.3
-        - 2.1.4
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -552,12 +601,10 @@ m_PackageAssets:
         - 3.0.0
         - 3.0.1
         - 3.0.3
-        - 3.0.4
         compatible:
         - 3.0.1
         - 3.0.3
-        - 3.0.4
-        verified: 3.0.4
+        verified: 3.0.3
       dependencies:
       - name: com.unity.ugui
         version: 1.0.0
@@ -599,7 +646,11 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.3.6
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.timeline@1.3.6
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.timeline@1.3.6
+>>>>>>> Manon2
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -632,7 +683,6 @@ m_PackageAssets:
         - 1.2.15
         - 1.2.16
         - 1.2.17
-        - 1.2.18
         - 1.3.0-preview.2
         - 1.3.0-preview.3
         - 1.3.0-preview.5
@@ -645,7 +695,6 @@ m_PackageAssets:
         - 1.3.4
         - 1.3.5
         - 1.3.6
-        - 1.3.7
         - 1.4.0-preview.1
         - 1.4.0-preview.2
         - 1.4.0-preview.3
@@ -656,20 +705,11 @@ m_PackageAssets:
         - 1.4.1
         - 1.4.2
         - 1.4.3
-        - 1.4.4
-        - 1.4.5
-        - 1.4.6
-        - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
         - 1.5.0-preview.3
         - 1.5.0-preview.4
         - 1.5.0-preview.5
-        - 1.5.1-pre.1
-        - 1.5.1-pre.2
-        - 1.5.1-pre.3
-        - 1.5.2
-        - 1.6.0-pre.1
         compatible:
         - 1.2.6
         - 1.2.7
@@ -682,7 +722,6 @@ m_PackageAssets:
         - 1.2.15
         - 1.2.16
         - 1.2.17
-        - 1.2.18
         - 1.3.0-preview.2
         - 1.3.0-preview.3
         - 1.3.0-preview.5
@@ -695,7 +734,6 @@ m_PackageAssets:
         - 1.3.4
         - 1.3.5
         - 1.3.6
-        - 1.3.7
         - 1.4.0-preview.1
         - 1.4.0-preview.2
         - 1.4.0-preview.3
@@ -706,21 +744,12 @@ m_PackageAssets:
         - 1.4.1
         - 1.4.2
         - 1.4.3
-        - 1.4.4
-        - 1.4.5
-        - 1.4.6
-        - 1.5.0-pre.2
         - 1.5.0-preview.1
         - 1.5.0-preview.2
         - 1.5.0-preview.3
         - 1.5.0-preview.4
         - 1.5.0-preview.5
-        - 1.5.1-pre.1
-        - 1.5.1-pre.2
-        - 1.5.1-pre.3
-        - 1.5.2
-        - 1.6.0-pre.1
-        verified: 1.3.7
+        verified: 1.3.6
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -2559,7 +2588,11 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.5
       source: 1
+<<<<<<< HEAD
       resolvedPath: E:\Unity projects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ext.nunit@1.0.5
+=======
+      resolvedPath: C:\UnityProjects\VroumVroumTournois\Neural Network\Library\PackageCache\com.unity.ext.nunit@1.0.5
+>>>>>>> Manon2
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -2580,15 +2613,13 @@ m_PackageAssets:
         - 0.1.9-preview
         - 1.0.0
         - 1.0.5
-        - 1.0.6
         compatible:
         - 0.1.5-preview
         - 0.1.6-preview
         - 0.1.9-preview
         - 1.0.0
         - 1.0.5
-        - 1.0.6
-        verified: 1.0.6
+        verified: 1.0.5
       dependencies: []
       resolvedDependencies: []
       keywords:
@@ -2617,5 +2648,9 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
+<<<<<<< HEAD
 m_ProjectPath: E:/Unity projects/VroumVroumTournois/Neural Network/Packages
+=======
+m_ProjectPath: C:/UnityProjects/VroumVroumTournois/Neural Network/Packages
+>>>>>>> Manon2
 m_EditorVersion: 2020.1.17f1 (9957aee8edc2)
