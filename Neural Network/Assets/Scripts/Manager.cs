@@ -17,14 +17,16 @@ public class Manager : MonoBehaviour
     Agent agent;
 
     List<Agent> agents = new List<Agent>();
+
+    public int selectionNumbers;
     
     //Tous les tracks sont dans un gameobject en enfant.
-    public List<GameObject> stadiumList = new List<GameObject>();
-    public List<GameObject> chosenList = new List<GameObject>();
+    //public List<GameObject> stadiumList = new List<GameObject>();
+    //public List<GameObject> chosenList = new List<GameObject>();
     [SerializeField] private GameObject stadiumParent;
     public int numberOfTracks;
-    public GameObject LastCheckpointTrack;
-    public GameObject currentTrack;
+    //public GameObject LastCheckpointTrack;
+    //public GameObject currentTrack;
 
     public CameraController cameraController;
 
@@ -35,31 +37,31 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        Tirage();
+        //Tirage();
     }
 
     void Start()
     {
         StartCoroutine(InitCoroutine());
     }
-    void Tirage()
-    {
-        foreach (Transform child in stadiumParent.transform)
-        {
-            stadiumList.Add(child.gameObject);
-        }
+    //void Tirage()
+    //{
+    //    foreach (Transform child in stadiumParent.transform)
+    //    {
+    //        stadiumList.Add(child.gameObject);
+    //    }
 
-        for (int i = 0; i < numberOfTracks; i++)
-        {
-            int randomNumber = Random.Range(0, stadiumList.Count);
-            Debug.Log(randomNumber);
-            GameObject chosenTrack = stadiumList[randomNumber];
-            chosenList.Add(chosenTrack);
-            stadiumList.Remove(stadiumList[randomNumber]);
-        }
+    //    for (int i = 0; i < numberOfTracks; i++)
+    //    {
+    //        int randomNumber = Random.Range(0, stadiumList.Count);
+    //        Debug.Log(randomNumber);
+    //        GameObject chosenTrack = stadiumList[randomNumber];
+    //        chosenList.Add(chosenTrack);
+    //        stadiumList.Remove(stadiumList[randomNumber]);
+    //    }
 
-        LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
-    }
+    //    LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
+    //}
     
     void NewGeneration()
     {
@@ -88,11 +90,17 @@ public class Manager : MonoBehaviour
 
     void Mutate()
     {
+        int selectedNumbers = 0;
         for (int i = agents.Count / 2; i < agents.Count; i++)
         {
-            agents[i].net.CopyNet(agents[i-agents.Count/2].net);
+            agents[i].net.CopyNet(agents[selectedNumbers].net);
             agents[i].net.Mutate(mutationRate);
             agents[i].SetMutatedMaterial();
+            selectedNumbers++;
+            if(selectedNumbers == selectionNumbers)
+            {
+                selectedNumbers = 0;
+            }
         }
     }
 
@@ -219,6 +227,7 @@ public class Manager : MonoBehaviour
         StartCoroutine(Loop());
     }
 
+    // sert à attribuer un nom à la voiture
     void InitAgentName()
     {
         for (int i = 0; i < agents.Count; i++)
@@ -264,6 +273,7 @@ public class Manager : MonoBehaviour
                 agents[i].firstName = firstNames[selectFirstName];
                 agents[i].adjectiveName = adjectiveNames[selectAdjectiveName];
                 agents[i].fullName = firstNames[selectFirstName] + " " + adjectiveNames[selectAdjectiveName];
+                agents[i].text.text = agents[i].fullName;
             }
         }
     }
