@@ -5,6 +5,8 @@ using System.Linq;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager instance;
+
     public int populationSize;
     public float trainingDuration = 30;
     public float mutationRate = 5f;
@@ -15,14 +17,44 @@ public class Manager : MonoBehaviour
     Agent agent;
 
     List<Agent> agents = new List<Agent>();
+    
+    //Tous les tracks sont dans un gameobject en enfant.
+    public List<GameObject> stadiumList = new List<GameObject>();
+    public List<GameObject> chosenList = new List<GameObject>();
+    [SerializeField] private GameObject stadiumParent;
+    public int numberOfTracks;
+    public GameObject LastCheckpointTrack;
 
     public CameraController cameraController;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        instance = this;
+        Tirage();
+    }
+
     void Start()
     {
-        StartCoroutine(InitCoroutine());
+        //StartCoroutine(InitCoroutine());
     }
+    void Tirage()
+    {
+        foreach (Transform child in stadiumParent.transform)
+        {
+            stadiumList.Add(child.gameObject);
+        }
+
+        for (int i = 0; i < numberOfTracks; i++)
+        {
+            int randomNumber = Random.Range(0, stadiumList.Count);
+            Debug.Log(randomNumber);
+            GameObject chosenTrack = stadiumList[randomNumber];
+            chosenList.Add(chosenTrack);
+            stadiumList.Remove(stadiumList[randomNumber]);
+        }
+    }
+    
     void NewGeneration()
     {
         agents.Sort();
