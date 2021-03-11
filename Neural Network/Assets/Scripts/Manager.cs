@@ -5,6 +5,8 @@ using System.Linq;
 
 public class Manager : MonoBehaviour
 {
+    public bool needFinishCamera = false;
+
     public static Manager instance;
 
     public int populationSize;
@@ -26,7 +28,10 @@ public class Manager : MonoBehaviour
     public GameObject LastCheckpointTrack;
     public GameObject currentTrack;
 
+    //Camera Stuff
     public CameraController cameraController;
+    public Camera cameraMain;
+    public Camera finishCamera;
 
     public string[] firstNames;
     public string[] adjectiveNames;
@@ -34,6 +39,8 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        finishCamera = currentTrack.GetComponent<TrackBehaviour>().finishCamera;
+        finishCamera.enabled = false;
         instance = this;
         Tirage();
     }
@@ -41,6 +48,19 @@ public class Manager : MonoBehaviour
     void Start()
     {
         StartCoroutine(InitCoroutine());
+    }
+
+    private void Update()
+    {
+        if (!needFinishCamera)
+        {
+            ReFocus();
+        }
+        else
+        {
+            cameraMain.enabled = false;
+            finishCamera.enabled = true;
+        }
     }
     void Tirage()
     {
@@ -205,7 +225,7 @@ public class Manager : MonoBehaviour
        
         NewGeneration();
         InitNeuralNetworkViewer();
-        InitAgentName();
+        //InitAgentName();
         Focus();
         yield return new WaitForSeconds(trainingDuration);
         StartCoroutine(Loop());
