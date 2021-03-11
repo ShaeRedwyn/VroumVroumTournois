@@ -28,6 +28,9 @@ public class Manager : MonoBehaviour
 
     public CameraController cameraController;
 
+    public string[] firstNames;
+    public string[] adjectiveNames;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -199,8 +202,10 @@ public class Manager : MonoBehaviour
 
     IEnumerator InitCoroutine()
     {
+       
         NewGeneration();
         InitNeuralNetworkViewer();
+        InitAgentName();
         Focus();
         yield return new WaitForSeconds(trainingDuration);
         StartCoroutine(Loop());
@@ -214,4 +219,52 @@ public class Manager : MonoBehaviour
         StartCoroutine(Loop());
     }
 
+    void InitAgentName()
+    {
+        for (int i = 0; i < agents.Count; i++)
+        {
+
+            bool isFirstNameAlreadyIn;
+            bool isAdjectiveAlreadyIn;
+            bool isFullNameAlreadyIn;
+            int selectFirstName;
+            int selectAdjectiveName;
+            if (agents[i].fullName == string.Empty)
+            {
+                do
+                {
+                    isFullNameAlreadyIn = false;
+                    selectFirstName = Random.Range(0, firstNames.Length);
+                    selectAdjectiveName = Random.Range(0, adjectiveNames.Length);
+                    foreach (Agent agent in agents)
+                    {
+                        isFirstNameAlreadyIn = false;
+                        isAdjectiveAlreadyIn = false;
+                        if (agent.fullName != string.Empty)
+                        {
+                            if (agent.firstName == firstNames[selectFirstName])
+                            {
+                                isFirstNameAlreadyIn = true;
+                            }
+                            if (agent.adjectiveName == adjectiveNames[selectAdjectiveName])
+                            {
+                                isAdjectiveAlreadyIn = true;
+                            }
+
+                            if (isAdjectiveAlreadyIn && isFirstNameAlreadyIn)
+                            {
+                                isFullNameAlreadyIn = true;
+                            }
+                        }
+                    }
+
+                } while (isFullNameAlreadyIn == true);
+
+
+                agents[i].firstName = firstNames[selectFirstName];
+                agents[i].adjectiveName = adjectiveNames[selectAdjectiveName];
+                agents[i].fullName = firstNames[selectFirstName] + " " + adjectiveNames[selectAdjectiveName];
+            }
+        }
+    }
 }
