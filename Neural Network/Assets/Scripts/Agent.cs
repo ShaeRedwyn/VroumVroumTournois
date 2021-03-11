@@ -18,13 +18,15 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
     public float nextCheckpointDist;
 
+    public bool needToStop = false;
+    //Name
     public string fullName;
-
     public string firstName;
     public string adjectiveName;
 
     public void ResetAgent()
     {
+        needToStop = false;
         fitness = 0;
         distanceTraveled = 0;
         transform.position = Vector3.zero;
@@ -44,9 +46,27 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
     private void FixedUpdate()
     {
-        InputUpdate();
-        OutputUpdate();
-        FitnessUpdate();
+        if (!needToStop)
+        {
+            InputUpdate();
+            OutputUpdate();
+            FitnessUpdate();
+        }
+        else
+        {
+            rb.velocity -= rb.velocity * 0.001f;
+            rb.angularVelocity -= rb.velocity *0.001f;
+            if (rb.velocity.magnitude < 1)
+            {
+                carController.Reset();
+                Debug.Log("ici");
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
+        }
+       
+        
+        
     }
     void InputUpdate()
     {

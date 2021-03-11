@@ -7,6 +7,7 @@ public class TrackBehaviour : MonoBehaviour
     public GameObject lastCheckpointTrack;
     public CheckpointManager checkpointManager;
     public GameObject track;
+    public Camera finishCamera;
 
     public List<GameObject> finishOrder = new List<GameObject>();
 
@@ -14,7 +15,9 @@ public class TrackBehaviour : MonoBehaviour
     {
         if (other.transform.parent.GetComponent<Agent>().lastCheckpoint == Manager.instance.LastCheckpointTrack.transform)
         {
-            finishOrder.Add(other.gameObject);
+            GameObject car = other.transform.parent.gameObject;
+            finishOrder.Add(car);
+            car.GetComponent<Agent>().needToStop = true;
         }
     }
 }
