@@ -2716,6 +2716,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishCamera: {fileID: 0}
+  maxPoints: 0
 --- !u!1001 &512035658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3230,7 +3231,7 @@ MonoBehaviour:
   chosenList: []
   needFinishCamera: 0
   populationSize: 100
-  trainingDuration: 120
+  trainingDuration: 90
   mutationRate: 5
   agentPrefab: {fileID: 2653385075853157574, guid: da71e4d2e122d61459408baf737def49, type: 3}
   agentGroup: {fileID: 939603503}
@@ -3566,6 +3567,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 1611539388}
   track: {fileID: 495995990}
   finishCamera: {fileID: 1890768374}
+  maxPoints: 0
 --- !u!1001 &651250217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4841,6 +4843,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 0}
   track: {fileID: 0}
   finishCamera: {fileID: 0}
+  maxPoints: 0
 --- !u!64 &880585238
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5430,8 +5433,9 @@ MonoBehaviour:
   finishOrder: []
   lastCheckpointTrack: {fileID: 194407179}
   checkpointManager: {fileID: 641095868}
-  track: {fileID: 641095866}
+  track: {fileID: 590304000}
   finishCamera: {fileID: 1161025714}
+  maxPoints: 100
 --- !u!1001 &1014185575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8358,6 +8362,7 @@ MonoBehaviour:
   checkpointManager: {fileID: 1783014147}
   track: {fileID: 880585235}
   finishCamera: {fileID: 718672182}
+  maxPoints: 0
 --- !u!1001 &1643806594
 PrefabInstance:
   m_ObjectHideFlags: 0

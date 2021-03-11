@@ -603,6 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb3fc1fa9a15ee49a0882ca38c47470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTeam: 0
   net:
     layers: 08000000080000000800000002000000
   carController: {fileID: 919132147795246430}
@@ -612,17 +613,20 @@ MonoBehaviour:
   nextCheckpoint: {fileID: 0}
   lastCheckpoint: {fileID: 0}
   nextCheckpointDist: 0
+  needToStop: 0
   fullName: 
   firstName: 
   adjectiveName: 
+  points: 0
   text: {fileID: 5722336884997660895}
   layerMask:
     serializedVersion: 2
     m_Bits: 1
   render: {fileID: 3601011185236577029}
-  goldMaterial: {fileID: 2100000, guid: c7b5b0c391a48ac44aa4112e9ec931a4, type: 2}
-  silverMaterial: {fileID: 2100000, guid: 4ac7ce3824740734996c394595cbbb18, type: 2}
-  bronzeMaterial: {fileID: 2100000, guid: 261e5e98ef61f5346bb642c4c2465627, type: 2}
+  redMaterial: {fileID: 2100000, guid: a97d4f3d6ef705f429ccae4981254a74, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 9442eabf8040a73408425150ae09046c, type: 2}
+  bleuMaterial: {fileID: 2100000, guid: 5ffd25b458dca61418c340256fb5856e, type: 2}
+  yellowMaterial: {fileID: 2100000, guid: c7b5b0c391a48ac44aa4112e9ec931a4, type: 2}
 --- !u!1 &4262847501118090982
 GameObject:
   m_ObjectHideFlags: 0
