@@ -17,6 +17,11 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
     public float nextCheckpointDist;
 
+    public string fullName;
+
+    public string firstName;
+    public string adjectiveName;
+
     public void ResetAgent()
     {
         fitness = 0;
