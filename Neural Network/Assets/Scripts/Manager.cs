@@ -24,6 +24,7 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject stadiumParent;
     public int numberOfTracks;
     public GameObject LastCheckpointTrack;
+    public GameObject currentTrack;
 
     public CameraController cameraController;
 
@@ -36,7 +37,7 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(InitCoroutine());
+        StartCoroutine(InitCoroutine());
     }
     void Tirage()
     {
@@ -53,6 +54,8 @@ public class Manager : MonoBehaviour
             chosenList.Add(chosenTrack);
             stadiumList.Remove(stadiumList[randomNumber]);
         }
+
+        LastCheckpointTrack = currentTrack.GetComponent<TrackBehaviour>().lastCheckpointTrack;
     }
     
     void NewGeneration()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrackBehaviour : MonoBehaviour
 {
-
+    public GameObject lastCheckpointTrack;
     public CheckpointManager checkpointManager;
     public GameObject track;
 
