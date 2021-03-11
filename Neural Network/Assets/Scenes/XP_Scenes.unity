@@ -2053,7 +2053,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -3235,6 +3235,8 @@ MonoBehaviour:
   LastCheckpointTrack: {fileID: 0}
   currentTrack: {fileID: 1009405132}
   cameraController: {fileID: 746683100}
+  firstNames: []
+  adjectiveNames: []
 --- !u!114 &634123146
 MonoBehaviour:
   m_ObjectHideFlags: 0
