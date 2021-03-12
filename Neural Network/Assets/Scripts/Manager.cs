@@ -7,6 +7,10 @@ using System;
 
 public class Manager : MonoBehaviour
 {
+    //Training
+    public int fastTraining;
+    public int trainingBeforeRun;
+
     //Canvas Stuff
     [SerializeField] private TextMeshProUGUI yellowScore;
     [SerializeField] private TextMeshProUGUI blueScore;
@@ -134,8 +138,14 @@ public class Manager : MonoBehaviour
 
         timerText.text = minutes + " : " + seconds;
     }
+
     void Tirage()
     {
+            foreach (Transform child in stadiumParent.transform)
+            {
+                stadiumList.Add(child.gameObject);
+            }
+
             for (int i = 0; i < numberOfTracks; i++)
             {
                 int randomNumber = UnityEngine.Random.Range(0, stadiumList.Count);
@@ -163,6 +173,7 @@ public class Manager : MonoBehaviour
             
             }
         }
+
         void SetMaterials()
         {
             for (int i = 0; i < agents.Count; i+=4)
@@ -313,17 +324,20 @@ public class Manager : MonoBehaviour
 
         IEnumerator Loop()
         {
-        greenScore.text = null;
-        redScore.text = null;
-        blueScore.text = null;
-        yellowScore.text = null;
-        numberOfTraining++;
+        #region
+            //Reset du Score des Equipes pour la Run
+            greenScore.text = null;
+            redScore.text = null;
+            blueScore.text = null;
+            yellowScore.text = null;
+            numberOfTraining++;
+        #endregion
 
-            if (numberOfTraining < 4)
-            {
+         if(numberOfTraining < fastTraining)
+         {
                 yield return new WaitForSeconds(2f);
                 End();
-            }
+         }
 
             cameraMain.enabled = true;
             currentTime = MaxTime;
@@ -334,19 +348,17 @@ public class Manager : MonoBehaviour
             ResetTeam();
             NewGeneration();
             Focus();
-            currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar = 0;
             currentTrack.GetComponent<TrackBehaviour>().finishOrder = new List<GameObject>();
             yield return new WaitForSeconds(trainingDuration);
-           
             numberOfTraining++;
 
-            if(numberOfTraining < 15)
+            if(numberOfTraining > trainingBeforeRun)
             {
-            greenScore.text = null;
-            redScore.text = null;
-            blueScore.text = null;
-            yellowScore.text = null;
-            StartCoroutine(Run());
+                StartCoroutine(Run());
+            }
+            else
+            {
+            StartCoroutine(Loop());
             }
 
         }
@@ -362,13 +374,16 @@ public class Manager : MonoBehaviour
             ResetTeam();
             NewGeneration();
             Focus();
-            currentTrack.GetComponent<TrackBehaviour>().numberOfFinishedCar = 0;
             currentTrack.GetComponent<TrackBehaviour>().finishOrder = new List<GameObject>();
             yield return new WaitForSeconds (trainingDuration);
+
+            //Set le Score
             greenScore.text = greenPoints.ToString();
             redScore.text = redPoints.ToString();
             blueScore.text = bluePoints.ToString();
             yellowScore.text = yellowPoints.ToString();
+            yield return new WaitForSeconds(10f);
+            StartCoroutine(NextTrack());
 
         }
 

@@ -32,6 +32,7 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
     public int points;
 
+    
     public TextMeshPro text;
     public void ResetAgent()
     {
@@ -79,13 +80,16 @@ public class Agent : MonoBehaviour , IComparable<Agent>
 
         RespawnOnCheckpoint();        
     }
+
+    
+
     void InputUpdate()
     {
-        inputs[0] = RaySensor(transform.position + Vector3.up * 0.2f,transform.forward,4);
-        inputs[1] = RaySensor(transform.position + Vector3.up * 0.2f, transform.right, 1.5f);
-        inputs[2] = RaySensor(transform.position + Vector3.up * 0.2f, -transform.right, 1.5f);
-        inputs[3] = RaySensor(transform.position + Vector3.up *0.2f, transform.forward + transform.right, 2f);
-        inputs[4] = RaySensor(transform.position + Vector3.up * 0.2f, transform.forward - transform.right, 2f);
+        inputs[0] = RaySensor(transform.position + Vector3.up * 0.2f,transform.forward,5);
+        inputs[1] = RaySensor(transform.position + Vector3.up * 0.2f, transform.right, 2f);
+        inputs[2] = RaySensor(transform.position + Vector3.up * 0.2f, -transform.right, 2f);
+        inputs[3] = RaySensor(transform.position + Vector3.up *0.2f, transform.forward + transform.right, 3f);
+        inputs[4] = RaySensor(transform.position + Vector3.up * 0.2f, transform.forward - transform.right, 3f);
 
         inputs[5] = (float)Math.Tanh(rb.velocity.magnitude * 0.05f);
         inputs[6] = (float)Math.Tanh(rb.angularVelocity.y * 0.1f);
@@ -157,13 +161,14 @@ public class Agent : MonoBehaviour , IComparable<Agent>
     }
 
     public void RespawnOnCheckpoint()    
-    {       
+    {
+        freezeTime = 0;
 
         if (transform.position.y < -10)
         {
             if(lastCheckpoint != null)
             {
-                transform.position = lastCheckpoint.transform.position;
+                transform.position = lastCheckpoint.transform.position + new Vector3(0f,1f,0f) ;
             }
             else if(lastCheckpoint == null)
             {

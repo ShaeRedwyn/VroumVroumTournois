@@ -233,6 +233,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2040526376}
     m_Modifications:
+    - target: {fileID: 3357242920500551475, guid: 656ad59116706744c9ee523457e564a1, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 634123145}
+    - target: {fileID: 3357242921140905307, guid: 656ad59116706744c9ee523457e564a1, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3357242922080187653, guid: 656ad59116706744c9ee523457e564a1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -277,11 +285,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3357242922080579456, guid: 656ad59116706744c9ee523457e564a1, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 634123145}
     - target: {fileID: 3357242922080610597, guid: 656ad59116706744c9ee523457e564a1, type: 3}
       propertyPath: m_Name
       value: Track2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3357242922080610597, guid: 656ad59116706744c9ee523457e564a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3357242920500551475, guid: 656ad59116706744c9ee523457e564a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 656ad59116706744c9ee523457e564a1, type: 3}
 --- !u!4 &180396691 stripped
 Transform:
@@ -1015,11 +1032,11 @@ RectTransform:
   m_Father: {fileID: 374093552}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: 184}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20.400024, y: 58.9}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &384817334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,9 +1141,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2040526376}
     m_Modifications:
+    - target: {fileID: 5543471603985291041, guid: 3fd73689252d6f44187604395af05fd9, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 634123145}
     - target: {fileID: 5543471603985387934, guid: 3fd73689252d6f44187604395af05fd9, type: 3}
       propertyPath: m_Name
       value: Track 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543471603985387934, guid: 3fd73689252d6f44187604395af05fd9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5543471603985419710, guid: 3fd73689252d6f44187604395af05fd9, type: 3}
       propertyPath: m_RootOrder
@@ -1197,9 +1222,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2040526376}
     m_Modifications:
+    - target: {fileID: 4950218442291063343, guid: 692e9d544e58ac647b970cf3f3de2191, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 634123145}
     - target: {fileID: 4950218442291096704, guid: 692e9d544e58ac647b970cf3f3de2191, type: 3}
       propertyPath: m_Name
       value: Track3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4950218442291096704, guid: 692e9d544e58ac647b970cf3f3de2191, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4950218442291458208, guid: 692e9d544e58ac647b970cf3f3de2191, type: 3}
       propertyPath: m_RootOrder
@@ -1399,6 +1432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119f05611f81dc34ab0d668434e0792a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fastTraining: 4
+  trainingBeforeRun: 10
   yellowScore: {fileID: 1553258962}
   blueScore: {fileID: 384817334}
   redScore: {fileID: 707968585}
@@ -1416,11 +1451,11 @@ MonoBehaviour:
   chosenList: []
   needFinishCamera: 0
   populationSize: 100
-  trainingDuration: 90
+  trainingDuration: 100
   mutationRate: 5
   agentPrefab: {fileID: 2653385075853157574, guid: da71e4d2e122d61459408baf737def49, type: 3}
   agentGroup: {fileID: 939603503}
-  selectionNumbers: 3
+  selectionNumbers: 10
   blueTeam: []
   redTeam: []
   greenTeam: []
@@ -1620,7 +1655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115928583c5cf8a4fafaccfd091b29f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: 1.75
+  timeScale: 2
 --- !u!114 &684390809 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8482333396774311041, guid: 0d3dda541f2a4b54d8781efeefdac0a5, type: 3}
@@ -1680,11 +1715,11 @@ RectTransform:
   m_Father: {fileID: 374093552}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: 243}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20.400024, y: 107.1}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &707968585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2290,6 +2325,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8943877341389025607, guid: e60ce50d25bf6b64e955c2d20e2cf437, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8943877341389125600, guid: e60ce50d25bf6b64e955c2d20e2cf437, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 634123145}
     - target: {fileID: 8943877341389516135, guid: e60ce50d25bf6b64e955c2d20e2cf437, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2389,11 +2432,11 @@ RectTransform:
   m_Father: {fileID: 374093552}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: 215}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20.400024, y: 84.1}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1063978725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2691,15 +2734,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.8
-    y: 0.4
-    width: 0.7
-    height: 0.81
+    x: 0.7
+    y: 0.37
+    width: 6.54
+    height: 3.35
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 69.5
+  orthographic size: 123.8
   m_Depth: 3
   m_CullingMask:
     serializedVersion: 2
@@ -2723,7 +2766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432733176}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 32.59, y: 100, z: -13.73}
+  m_LocalPosition: {x: 44.6, y: 310.4, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2761,11 +2804,11 @@ RectTransform:
   m_Father: {fileID: 374093552}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 511, y: 151}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 20.400024, y: 31.7}
   m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1553258962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3302,9 +3345,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2040526376}
     m_Modifications:
+    - target: {fileID: 3705584054297064298, guid: 11040ad3e9b4c384c83f5cd7953545ac, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 634123145}
     - target: {fileID: 3705584054297163215, guid: 11040ad3e9b4c384c83f5cd7953545ac, type: 3}
       propertyPath: m_Name
       value: Track 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3705584054297163215, guid: 11040ad3e9b4c384c83f5cd7953545ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3705584054297192943, guid: 11040ad3e9b4c384c83f5cd7953545ac, type: 3}
       propertyPath: m_RootOrder

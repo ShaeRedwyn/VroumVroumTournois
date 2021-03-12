@@ -16,7 +16,7 @@ public class TrackBehaviour : MonoBehaviour
     public int maxPoints = 100;
 
     public int numberOfFinishedCar = 0;
-    //public List<GameObject> finishOrder = new List<GameObject>();
+    
 
    
 
@@ -35,8 +35,6 @@ public class TrackBehaviour : MonoBehaviour
                 manager.timingRank[numberOfFinishedCar].text = manager.minutes + " : " + manager.seconds;
                 numberOfFinishedCar++;
             }
-
-           
         }
     }
 
